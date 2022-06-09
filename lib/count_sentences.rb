@@ -2,19 +2,29 @@ require 'pry'
 
 class String
 
-  def sentence?
-    
-  end
+	def sentence?
+		self.end_with?('.')
+	end
 
-  def question?
+	def question?
+		self.end_with?('?')
+	end
 
-  end
+	def exclamation?
+		self.end_with?('!')
+	end
 
-  def exclamation?
-
-  end
-
-  def count_sentences
-
-  end
+	def count_sentences
+		self.split(/\.+|\?+|\!+/).count
+	end
 end
+
+def reload
+	load "lib/count_sentences.rb"
+end
+
+
+binding.pry
+
+# "This, well, is a sentence. This is too!! And so is this, I think? Woo...".count_sentences
+
